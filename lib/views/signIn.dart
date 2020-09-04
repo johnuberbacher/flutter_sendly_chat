@@ -12,35 +12,31 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       backgroundColor: Color(0xFF1f1e30),
       // appBar: appBarMain(context),
-      body: Container(
-        width: double.infinity,
-        margin: const EdgeInsets.all(30.0),
-        child: ScrollConfiguration(
-          behavior: new ScrollBehavior()
-            ..buildViewportChrome(context, null, AxisDirection.down),
-          child: SingleChildScrollView(
+      body: ScrollConfiguration(
+        behavior: new ScrollBehavior()
+          ..buildViewportChrome(context, null, AxisDirection.down),
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            margin: const EdgeInsets.all(30.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/icons/handle-chat-logo-shadow.png',
-                    width: 170.0),
+                Container(
+                  margin: const EdgeInsets.only(top: 90.0, bottom: 40.0),
+                  child: Image.asset('assets/icons/handle-chat-logo-shadow.png',
+                      width: 170.0),
+                ),
                 Container(
                   margin: const EdgeInsets.only(
                     bottom: 20.0,
                   ),
                   width: double.infinity,
                   child: TextField(
+                    style: TextStyle(color: Colors.white),
                     autofocus: false,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFF373753),
-                      hintText: "email",
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
+                    decoration: usernameTextFieldInputDecoration('username'),
                   ),
                 ),
                 Container(
@@ -49,16 +45,9 @@ class _SignInState extends State<SignIn> {
                   ),
                   width: double.infinity,
                   child: TextField(
+                    style: TextStyle(color: Colors.white),
                     autofocus: false,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFF373753),
-                      hintText: "email",
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
+                    decoration: textFieldInputDecoration('password'),
                   ),
                 ),
                 Container(
@@ -90,7 +79,7 @@ class _SignInState extends State<SignIn> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(
-                    bottom: 40.0,
+                    bottom: 20.0,
                   ),
                   width: double.infinity,
                   child: RaisedButton(
