@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
+import 'signUp.dart';
 import '../widgets/widget.dart';
 
+@override
 class SignIn extends StatefulWidget {
   @override
   _SignInState createState() => _SignInState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInState extends State<SignIn> with TickerProviderStateMixin {
+  AnimationController _animationController;
+  Animation _animation;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _animationController.repeat(reverse: true);
+    _animation = Tween(begin: 10.0, end: 40.0).animate(_animationController)
+      ..addListener(() {
+        setState(() {});
+      });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +42,16 @@ class _SignInState extends State<SignIn> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 90.0, bottom: 40.0),
-                  child: Image.asset('assets/icons/handle-chat-logo-shadow.png',
-                      width: 170.0),
+                  margin: const EdgeInsets.only(top: 120.0, bottom: 100.0),
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/icons/handle.png', width: 100.0),
+                  decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                    BoxShadow(
+                        color: Color(0x32d83256),
+                        blurRadius: _animation.value,
+                        spreadRadius: _animation.value)
+                  ]),
                 ),
                 Container(
                   margin: const EdgeInsets.only(
@@ -36,7 +61,7 @@ class _SignInState extends State<SignIn> {
                   child: TextField(
                     style: TextStyle(color: Colors.white),
                     autofocus: false,
-                    decoration: usernameTextFieldInputDecoration('username'),
+                    decoration: usernameTextFieldInputDecoration('handle'),
                   ),
                 ),
                 Container(
@@ -69,7 +94,7 @@ class _SignInState extends State<SignIn> {
                       left: 30.0,
                     ),
                     child: const Text(
-                      'SIGN IN',
+                      'LOGIN',
                       style: TextStyle(
                         letterSpacing: 1,
                         fontSize: 16,
@@ -95,7 +120,7 @@ class _SignInState extends State<SignIn> {
                       left: 30.0,
                     ),
                     child: const Text(
-                      'SIGN IN WITH GOOGLE',
+                      'LOGIN WITH GOOGLE',
                       style: TextStyle(
                         letterSpacing: 1,
                         fontSize: 16,
@@ -108,13 +133,21 @@ class _SignInState extends State<SignIn> {
                     bottom: 20.0,
                   ),
                   width: double.infinity,
-                  child: const Text(
-                    "Don't have an account? Register Now",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white70,
+                  child: GestureDetector(
+                    child: const Text(
+                      "Don't have an account? Register Now",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white70,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUp()),
+                      );
+                    },
                   ),
                 ),
               ],

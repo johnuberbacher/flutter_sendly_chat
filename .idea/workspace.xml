@@ -29,7 +29,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
@@ -101,30 +101,34 @@
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
     <state x="-1250" y="244" key="FileChooserDialogImpl/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599271445520" />
-    <state width="938" height="258" key="GridCell.Tab.0.bottom" timestamp="1599276581211">
+    <state width="938" height="258" key="GridCell.Tab.0.bottom" timestamp="1599362721406">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
-    <state width="938" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599276581211" />
-    <state width="938" height="258" key="GridCell.Tab.0.center" timestamp="1599276581211">
+    <state width="938" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599362721406" />
+    <state width="938" height="258" key="GridCell.Tab.0.center" timestamp="1599362721405">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
-    <state width="938" height="258" key="GridCell.Tab.0.center/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599276581211" />
-    <state width="938" height="258" key="GridCell.Tab.0.left" timestamp="1599276581211">
+    <state width="938" height="258" key="GridCell.Tab.0.center/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599362721405" />
+    <state width="938" height="258" key="GridCell.Tab.0.left" timestamp="1599362721405">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
-    <state width="938" height="258" key="GridCell.Tab.0.left/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599276581211" />
-    <state width="938" height="258" key="GridCell.Tab.0.right" timestamp="1599276581211">
+    <state width="938" height="258" key="GridCell.Tab.0.left/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599362721405" />
+    <state width="938" height="258" key="GridCell.Tab.0.right" timestamp="1599362721406">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
-    <state width="938" height="258" key="GridCell.Tab.0.right/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599276581211" />
-    <state x="-1328" y="117" width="1200" height="779" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1599275097659">
+    <state width="938" height="258" key="GridCell.Tab.0.right/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599362721406" />
+    <state x="-1202" y="272" key="SettingsEditor" timestamp="1599361238049">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
-    <state x="-1328" y="117" width="1200" height="779" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599275097659" />
-    <state x="-1334" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1599271440378">
+    <state x="-1202" y="272" key="SettingsEditor/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599361238049" />
+    <state x="-1328" y="117" width="1200" height="779" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1599277281990">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
-    <state x="-1334" y="313" key="com.intellij.ide.util.TipDialog/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599271440378" />
+    <state x="-1328" y="117" width="1200" height="779" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599277281990" />
+    <state x="-1334" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1599363016786">
+      <screen x="-1920" y="0" width="1920" height="1019" />
+    </state>
+    <state x="-1334" y="313" key="com.intellij.ide.util.TipDialog/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599363016786" />
     <state x="-1151" y="426" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599276623981">
       <screen x="-1920" y="0" width="1920" height="1019" />
     </state>
