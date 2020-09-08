@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
-Widget appBarMain(BuildContext context) {
-  return AppBar();
+Widget appBarChatRoom(BuildContext context) {
+  return AppBar(
+    backgroundColor: Color(0xFF1f1e30),
+    elevation: 0,
+    automaticallyImplyLeading: false,
+    actions: <Widget>[
+      IconButton(
+        icon: Icon(
+          Icons.settings,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          // do something
+        },
+      )
+    ],
+  );
 }
 
 InputDecoration usernameTextFieldInputDecoration(String hintText) {

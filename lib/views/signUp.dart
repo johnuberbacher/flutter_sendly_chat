@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:handle_chat/widgets/widget.dart';
-import 'package:handle_chat/services/authentication.dart';
-import 'package:handle_chat/views/chatRoom.dart';
-import 'package:handle_chat/views/signIn.dart';
+import 'package:sendly_chat/services/database.dart';
+import 'package:sendly_chat/views/signIn.dart';
+import 'package:sendly_chat/widgets/widget.dart';
+import 'package:sendly_chat/services/authentication.dart';
+import 'package:sendly_chat/services/authenticate.dart';
+import 'package:sendly_chat/views/chatRoom.dart';
+import 'package:sendly_chat/views/signIn.dart';
 
 class SignUp extends StatefulWidget {
+  final Function toggle;
+  SignUp(this.toggle);
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -13,6 +18,7 @@ class _SignUpState extends State<SignUp> {
   bool isLoading = false;
 
   AuthMethods authMethods = new AuthMethods();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
 
   final formKey = GlobalKey<FormState>();
   TextEditingController userNameTextEditingController =
@@ -21,8 +27,14 @@ class _SignUpState extends State<SignUp> {
       new TextEditingController();
   TextEditingController passwordTextEditingController =
       new TextEditingController();
+
   signUpAccount() {
     if (formKey.currentState.validate()) {
+      Map<String, String> userInfoMap = {
+        "name": userNameTextEditingController.text,
+        "email": emailTextEditingController.text
+      };
+
       setState(() {
         isLoading = true;
       });
@@ -31,6 +43,8 @@ class _SignUpState extends State<SignUp> {
               passwordTextEditingController.text)
           .then((val) {
         // print("${val.uid}");
+
+        databaseMethods.setUserInfo(userInfoMap);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => ChatRoom()));
       });
@@ -41,6 +55,13 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Authenticate()));
+          },
+        ),
         backgroundColor: Color(0xFF1f1e30),
         elevation: 0,
       ),
@@ -95,14 +116,14 @@ class _SignUpState extends State<SignUp> {
                                   keyboardType: TextInputType.text,
                                   validator: (val) {
                                     return val.isEmpty || val.length < 4
-                                        ? "Please enter handle"
+                                        ? "Please enter username"
                                         : null;
                                   },
                                   controller: userNameTextEditingController,
                                   style: TextStyle(color: Colors.white),
                                   autofocus: false,
                                   decoration: usernameTextFieldInputDecoration(
-                                      'handle'),
+                                      'username'),
                                 ),
                               ),
                               Container(
@@ -200,26 +221,22 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                width: double.infinity,
-                                child: GestureDetector(
-                                  child: const Text(
-                                    "Already have an account? Sign In",
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white70,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => SignIn()),
-                                    );
-                                  },
-                                ),
-                              ),
+                              // Container(
+                              //  width: double.infinity,
+                              //  child: GestureDetector(
+                              //    child: const Text(
+                              //     "Already have an account? Sign In",
+                              //    style: TextStyle(
+                              //       fontSize: 14,
+                              //      color: Colors.white70,
+                              //    ),
+                              //    textAlign: TextAlign.center,
+                              //  ),
+                              //   onTap: () {
+                              //    widget.toggle();
+                              //   },
+                              //      ),
+                              //  ),
                             ],
                           ),
                         ),

@@ -4,27 +4,13 @@ import '../widgets/widget.dart';
 
 @override
 class SignIn extends StatefulWidget {
+  final Function toggle;
+  SignIn(this.toggle);
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    _animationController.repeat(reverse: true);
-    _animation = Tween(begin: 10.0, end: 40.0).animate(_animationController)
-      ..addListener(() {
-        setState(() {});
-      });
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +34,8 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                   child: Image.asset('assets/icons/handle.png', width: 100.0),
                   decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
                     BoxShadow(
-                        color: Color(0x32d83256),
-                        blurRadius: _animation.value,
-                        spreadRadius: _animation.value)
+                      color: Color(0x32d83256),
+                    )
                   ]),
                 ),
                 Container(
@@ -61,7 +46,7 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                   child: TextField(
                     style: TextStyle(color: Colors.white),
                     autofocus: false,
-                    decoration: usernameTextFieldInputDecoration('handle'),
+                    decoration: usernameTextFieldInputDecoration('username'),
                   ),
                 ),
                 Container(
@@ -143,10 +128,7 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                       textAlign: TextAlign.center,
                     ),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUp()),
-                      );
+                      widget.toggle();
                     },
                   ),
                 ),

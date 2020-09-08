@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5ce4a07-f19e-4d9b-b69b-b50a8420f055" name="Default Changelist" comment="" />
+    <list default="true" id="56228cb3-9839-4d06-92dc-6d4073658997" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,14 +16,19 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1h4MooKdil9R4ozuofKmwvuV95H" />
+  <component name="ProjectId" id="1hC4WufhElKARS4GdhWABeWu4P9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -74,7 +79,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -146,11 +151,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f5ce4a07-f19e-4d9b-b69b-b50a8420f055" name="Default Changelist" comment="" />
-      <created>1599266088193</created>
+      <changelist id="56228cb3-9839-4d06-92dc-6d4073658997" name="Default Changelist" comment="" />
+      <created>1599501774385</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1599266088193</updated>
+      <updated>1599501774385</updated>
     </task>
     <servers />
   </component>
