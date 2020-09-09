@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sendly_chat/services/authenticate.dart';
+import 'package:sendly_chat/services/authentication.dart';
 
 Widget appBarChatRoom(BuildContext context) {
+  AuthMethods authMethods = new AuthMethods();
   return AppBar(
     backgroundColor: Color(0xFF1f1e30),
     elevation: 0,
@@ -12,7 +15,9 @@ Widget appBarChatRoom(BuildContext context) {
           color: Colors.white,
         ),
         onPressed: () {
-          // do something
+          authMethods.signOut();
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Authenticate()));
         },
       )
     ],

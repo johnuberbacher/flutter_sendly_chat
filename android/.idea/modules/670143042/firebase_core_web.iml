@@ -15,7 +15,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.0/android">
       <excludeFolder url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.0/android/.gradle" />

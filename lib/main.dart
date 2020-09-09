@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sendly_chat/services/authenticate.dart';
-import 'views/signIn.dart';
-import 'views/signUp.dart';
-import 'views/chatRoom.dart';
+import 'package:sendly_chat/services/functions.dart';
+import 'package:sendly_chat/views/chatRoom.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +17,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool userIsLoggedIn = false;
   @override
   void initState() {
+    getLoggedInState();
     super.initState();
+  }
+
+  getLoggedInState() async {
+    await HelperFunctions.getUserLoggedInPreference().then((value) {
+      setState(() {
+        userIsLoggedIn = value;
+      });
+    });
   }
 
   @override
@@ -32,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Authenticate(),
+      home: userIsLoggedIn ? ChatRoom() : Authenticate(),
     );
   }
 }

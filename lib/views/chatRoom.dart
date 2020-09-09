@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sendly_chat/services/constants.dart';
+import 'package:sendly_chat/services/functions.dart';
 import 'package:sendly_chat/widgets/widget.dart';
-import 'package:sendly_chat/services/authenticate.dart';
 import 'package:sendly_chat/services/authentication.dart';
 import 'package:sendly_chat/views/searchUser.dart';
 
@@ -10,6 +11,18 @@ class ChatRoom extends StatefulWidget {
 }
 
 class _ChatRoomState extends State<ChatRoom> {
+  AuthMethods authMethods = new AuthMethods();
+  @override
+  void initState() {
+    getUserInfo();
+    super.initState();
+  }
+
+  getUserInfo() async {
+    Constants.myName = await HelperFunctions.getUserNamePreference();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
@@ -20,7 +33,7 @@ class _ChatRoomState extends State<ChatRoom> {
           width: 70,
           height: 70,
           child: FloatingActionButton(
-            foregroundColor: Color(0xFFd83256),
+            backgroundColor: Color(0xFFd83256),
             child: Image.asset('assets/icons/sendly-white.png', width: 30.0),
             onPressed: () {
               Navigator.push(

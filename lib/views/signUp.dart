@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sendly_chat/services/database.dart';
-import 'package:sendly_chat/views/signIn.dart';
+import 'package:sendly_chat/services/functions.dart';
 import 'package:sendly_chat/widgets/widget.dart';
 import 'package:sendly_chat/services/authentication.dart';
 import 'package:sendly_chat/services/authenticate.dart';
 import 'package:sendly_chat/views/chatRoom.dart';
-import 'package:sendly_chat/views/signIn.dart';
 
 class SignUp extends StatefulWidget {
   final Function toggle;
@@ -23,6 +22,8 @@ class _SignUpState extends State<SignUp> {
   final formKey = GlobalKey<FormState>();
   TextEditingController userNameTextEditingController =
       new TextEditingController();
+  TextEditingController userNameLowercaseTextEditingController =
+      new TextEditingController();
   TextEditingController emailTextEditingController =
       new TextEditingController();
   TextEditingController passwordTextEditingController =
@@ -35,6 +36,10 @@ class _SignUpState extends State<SignUp> {
         "email": emailTextEditingController.text
       };
 
+      HelperFunctions.saveUserNamePreference(
+          userNameTextEditingController.text);
+      HelperFunctions.saveUserEmailPreference(emailTextEditingController.text);
+
       setState(() {
         isLoading = true;
       });
@@ -45,6 +50,7 @@ class _SignUpState extends State<SignUp> {
         // print("${val.uid}");
 
         databaseMethods.setUserInfo(userInfoMap);
+        HelperFunctions.saveUserLoggedInPreference(true);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => ChatRoom()));
       });
@@ -138,7 +144,7 @@ class _SignUpState extends State<SignUp> {
                                                 r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+|.[a-zA-Z]+")
                                             .hasMatch(val)
                                         ? null
-                                        : "Please enter a valid handle";
+                                        : "Please enter a valid email address";
                                   },
                                   controller: emailTextEditingController,
                                   style: TextStyle(color: Colors.white),
@@ -153,6 +159,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
                                 width: double.infinity,
                                 child: TextFormField(
+                                  obscureText: true,
                                   keyboardType: TextInputType.visiblePassword,
                                   validator: (val) {
                                     return val.length > 6
