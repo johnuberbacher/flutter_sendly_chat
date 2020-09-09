@@ -45,16 +45,19 @@ class _SearchUserState extends State<SearchUser> {
   }
 
   createNewConversation({String userName}) {
+    // print logged in users name
     print("${Constants.myName}");
     if (userName != Constants.myName) {
-      String chatRoomId = getChatRoomId(userName, Constants.myName);
+      print(userName);
+      String chatId = getchatId(userName, Constants.myName);
 
       List<String> users = [userName, Constants.myName];
-      Map<String, dynamic> chatRoomMap = {"users": users, "chatid": chatRoomId};
-      DatabaseMethods().createChatRoom(chatRoomId, chatRoomMap);
+      Map<String, dynamic> chatRoomMap = {"users": users, "chatid": chatId};
+      DatabaseMethods().createChatRoom(chatId, chatRoomMap);
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => ConversationScreen()));
+          MaterialPageRoute(builder: (context) => ConversationScreen(chatId)));
     } else {
+      // if you try to have a conversation with yourself
       print("Error");
     }
   }
@@ -164,6 +167,7 @@ class _SearchUserState extends State<SearchUser> {
                     ],
                     textCapitalization: TextCapitalization.none,
                     controller: searchTextEditingController,
+                    autofocus: true,
                     keyboardType: TextInputType.text,
                     validator: (val) {
                       return val.isEmpty || val.length < 4
@@ -171,7 +175,6 @@ class _SearchUserState extends State<SearchUser> {
                           : null;
                     },
                     style: TextStyle(color: Colors.white),
-                    autofocus: false,
                     decoration:
                         usernameTextFieldInputDecoration('search by username'),
                   ),
@@ -219,7 +222,7 @@ class _SearchUserState extends State<SearchUser> {
   }
 }
 
-getChatRoomId(String a, String b) {
+getchatId(String a, String b) {
   if (a.substring(0, 1).codeUnitAt(0) > b.substring(0, 1).codeUnitAt(0)) {
     return "$b\_$a";
   } else {

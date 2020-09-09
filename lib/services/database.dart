@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class DatabaseMethods {
   getUserInfo(String email) async {
@@ -40,5 +41,32 @@ class DatabaseMethods {
         .catchError((e) {
       print(e.toString());
     });
+  }
+
+  setChatMessages(String chatId, messageMap) {
+    FirebaseFirestore.instance
+        .collection("chats")
+        .doc(chatId)
+        .collection("conversations")
+        .add(messageMap)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  getChatMessages(String chatId) async {
+    return await FirebaseFirestore.instance
+        .collection("chats")
+        .doc(chatId)
+        .collection("conversations")
+        .orderBy("time", descending: false)
+        .snapshots();
+  }
+
+  getChats(String userName) async {
+    return await FirebaseFirestore.instance
+        .collection("chats")
+        .where("users", arrayContains: userName)
+        .snapshots();
   }
 }

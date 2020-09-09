@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:sendly_chat/services/authenticate.dart';
 import 'package:sendly_chat/services/functions.dart';
 import 'package:sendly_chat/views/chatRoom.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,11 +18,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool userIsLoggedIn = false;
+  bool userIsLoggedIn;
   @override
   void initState() {
     getLoggedInState();
     super.initState();
+    WidgetsBinding.instance.renderView.automaticSystemUiAdjustment =
+        false; //<--
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.blue.shade700,
+      ),
+    );
   }
 
   getLoggedInState() async {
@@ -41,7 +50,13 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: userIsLoggedIn ? ChatRoom() : Authenticate(),
+      home: userIsLoggedIn != null
+          ? userIsLoggedIn ? ChatRoom() : Authenticate()
+          : Container(
+              child: Center(
+                child: Authenticate(),
+              ),
+            ),
     );
   }
 }
