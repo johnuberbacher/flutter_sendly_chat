@@ -30,7 +30,8 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     return MessageTile(
                         snapshot.data.documents[index].data()["message"],
                         snapshot.data.documents[index].data()["sendByMe"] ==
-                            Constants.myName);
+                            Constants.myName,
+                        snapshot.data.documents[index].data()["time"]);
                   })
               : Container();
         },
@@ -48,6 +49,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
       databaseMethods.setChatMessages(widget.chatId, messageMap);
       messageTextEditingController.text = "";
     }
+    print(DateTime.now());
   }
 
   @override
@@ -131,40 +133,59 @@ class _ConversationScreenState extends State<ConversationScreen> {
 class MessageTile extends StatelessWidget {
   final String message;
   final bool sendByMe;
-  MessageTile(this.message, this.sendByMe);
+  final int time;
+
+  MessageTile(this.message, this.sendByMe, this.time);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
-      width: MediaQuery.of(context).size.width,
-      alignment: sendByMe ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        decoration: BoxDecoration(
-          color: sendByMe ? Color(0xFFd83256) : Color(0xFF373753),
-          borderRadius: sendByMe
-              ? BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                )
-              : BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-        ),
-        padding: EdgeInsets.symmetric(
-          vertical: 15,
-          horizontal: 20,
-        ),
-        child: Text(
-          message ?? "",
-          textAlign: TextAlign.start,
-          style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400),
-        ),
-      ),
-    );
+        margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
+        width: MediaQuery.of(context).size.width,
+        alignment: sendByMe ? Alignment.centerRight : Alignment.centerLeft,
+        child: Column(
+          crossAxisAlignment:
+              sendByMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 5),
+              child: Text(
+                message ?? "",
+                style: TextStyle(
+                    color: Color(0xFF373753),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: sendByMe ? Color(0xFFd83256) : Color(0xFF373753),
+                borderRadius: sendByMe
+                    ? BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                      )
+                    : BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+              ),
+              padding: EdgeInsets.symmetric(
+                vertical: 15,
+                horizontal: 20,
+              ),
+              child: Text(
+                message ?? "",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
+            ),
+          ],
+        ));
   }
 }

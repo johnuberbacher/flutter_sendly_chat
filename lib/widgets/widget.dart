@@ -16,7 +16,6 @@ Widget appBarChatRoom(BuildContext context) {
           color: Colors.white,
         ),
         onPressed: () {
-          authMethods.signOut();
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => ProfileScreen()));
         },
