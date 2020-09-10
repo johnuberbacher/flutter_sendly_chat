@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sendly_chat/services/authenticate.dart';
 import 'package:sendly_chat/services/authentication.dart';
+import 'package:sendly_chat/views/profile.dart';
 
 Widget appBarChatRoom(BuildContext context) {
   AuthMethods authMethods = new AuthMethods();
@@ -11,13 +12,13 @@ Widget appBarChatRoom(BuildContext context) {
     actions: <Widget>[
       IconButton(
         icon: Icon(
-          Icons.settings,
+          Icons.person,
           color: Colors.white,
         ),
         onPressed: () {
           authMethods.signOut();
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => Authenticate()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()));
         },
       )
     ],

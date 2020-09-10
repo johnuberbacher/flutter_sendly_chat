@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56228cb3-9839-4d06-92dc-6d4073658997" name="Default Changelist" comment="" />
+    <list default="true" id="4e2a5554-279d-48c2-a94f-f2eba1d644ee" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,19 +16,14 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1hC4WufhElKARS4GdhWABeWu4P9" />
+  <component name="ProjectId" id="1hIlCQybrSY98aFQYTqb2ZcQM6w" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -151,18 +146,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="56228cb3-9839-4d06-92dc-6d4073658997" name="Default Changelist" comment="" />
-      <created>1599501774385</created>
+      <changelist id="4e2a5554-279d-48c2-a94f-f2eba1d644ee" name="Default Changelist" comment="" />
+      <created>1599706358701</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1599501774385</updated>
+      <updated>1599706358701</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="-1032" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1599543771735">
-      <screen x="-1920" y="0" width="1920" height="1019" />
-    </state>
-    <state x="-1032" y="330" key="com.intellij.ide.util.TipDialog/0.0.1920.1019/-1920.0.1920.1019@-1920.0.1920.1019" timestamp="1599543771735" />
   </component>
 </project>

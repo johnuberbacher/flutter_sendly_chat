@@ -104,36 +104,59 @@ class ChatRoomTile extends StatelessWidget {
           color: Colors.black12,
           borderRadius: BorderRadius.circular(50),
         ),
-        margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
+        margin: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10.0),
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 25,
+            vertical: 15,
           ),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                margin: const EdgeInsets.only(right: 20.0),
-                alignment: Alignment.center,
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                    color: Color(0xFFd83256),
-                    borderRadius: BorderRadius.circular(40)),
-                child: Text(
-                  "${userName.substring(0, 1).toUpperCase()}",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFd83256),
+                          borderRadius: BorderRadius.circular(40)),
+                      child: Text(
+                        "${userName.substring(0, 1).toUpperCase()}",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                    Text(
+                      userName,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                userName,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400),
+              Container(
+                height: 50,
+                child: MaterialButton(
+                  color: Color(0xFFd83256),
+                  shape: CircleBorder(),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConversationScreen(chatId),
+                        ));
+                  },
+                  padding: EdgeInsets.all(12),
+                  child: Image.asset('assets/icons/sendly-white.png'),
+                ),
               ),
             ],
           ),
