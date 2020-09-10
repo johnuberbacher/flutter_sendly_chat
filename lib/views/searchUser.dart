@@ -119,7 +119,7 @@ class _SearchUserState extends State<SearchUser> {
                   createNewConversation(userName: userName);
                 },
                 padding: EdgeInsets.all(12),
-                child: Image.asset('assets/icons/sendly-white.png'),
+                child: Image.asset('assets/icons/sendly_white.png'),
               ),
             ),
           ],

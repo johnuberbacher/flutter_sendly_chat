@@ -67,7 +67,7 @@ class _ChatRoomState extends State<ChatRoom> {
           height: 70,
           child: FloatingActionButton(
             backgroundColor: Color(0xFFd83256),
-            child: Image.asset('assets/icons/sendly-white.png', width: 30.0),
+            child: Image.asset('assets/icons/sendly_white.png', width: 30.0),
             onPressed: () {
               Navigator.push(
                 context,
@@ -155,7 +155,7 @@ class ChatRoomTile extends StatelessWidget {
                         ));
                   },
                   padding: EdgeInsets.all(12),
-                  child: Image.asset('assets/icons/sendly-white.png'),
+                  child: Image.asset('assets/icons/sendly_white.png'),
                 ),
               ),
             ],

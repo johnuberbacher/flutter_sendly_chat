@@ -118,7 +118,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                         sendMessage();
                       },
                       padding: EdgeInsets.all(16),
-                      child: Image.asset('assets/icons/sendly-white.png',
+                      child: Image.asset('assets/icons/sendly_white.png',
                           width: 25.0),
                     ),
                   ],

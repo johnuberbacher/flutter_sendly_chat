@@ -76,7 +76,7 @@ class _SignInState extends State<SignIn> with TickerProviderStateMixin {
                       width: 100,
                       height: 100,
                       child:
-                          Image.asset('assets/icons/handle.png', width: 100.0),
+                          Image.asset('assets/icons/sendly.png', width: 100.0),
                       decoration:
                           BoxDecoration(shape: BoxShape.circle, boxShadow: [
                         BoxShadow(

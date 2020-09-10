@@ -32,6 +32,7 @@ dependencies:
   cloud_firestore: ^0.14.0+2
   shared_preferences: ^0.5.10
   flutter_launcher_icons: ^0.7.5
+  flutter_native_splash: ^0.1.9
 
 dev_dependencies:
   flutter_test:
@@ -42,8 +43,12 @@ flutter_icons:
   ios: true
   image_path_android: "assets/icons/launcher.png"
   image_path_ios: "assets/icons/launcher.png"
-  adaptive_icon_foreground: "assets/icons/launcher_foreground.png"
+  adaptive_icon_foreground: "assets/icons/sendly_white.png"
   adaptive_icon_background: "#d83256"
+
+flutter_native_splash:
+  image: assets/icons/launcher_foreground.png
+  color: "d83256"
 
 # For information on the generic Dart part of this file, see the
 # following page: https:#dart.dev/tools/pub/pubspec
