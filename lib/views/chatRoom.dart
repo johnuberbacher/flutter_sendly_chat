@@ -100,9 +100,16 @@ class ChatRoomTile extends StatelessWidget {
             ));
       },
       child: Container(
-        color: Colors.black12,
+        decoration: BoxDecoration(
+          color: Colors.black12,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 25,
+          ),
           child: Row(
             children: [
               Container(

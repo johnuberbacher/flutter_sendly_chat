@@ -27,8 +27,8 @@ class _MyAppState extends State<MyApp> {
         false; //<--
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.blue.shade700,
+        statusBarColor: Color(0xFF1f1e30),
+        systemNavigationBarColor: Color(0xFF1f1e30),
       ),
     );
   }
@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Sendly Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

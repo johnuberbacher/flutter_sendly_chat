@@ -150,6 +150,7 @@ class _SearchUserState extends State<SearchUser> {
           ..buildViewportChrome(context, null, AxisDirection.down),
         child: SingleChildScrollView(
           child: Container(
+            height: MediaQuery.of(context).size.height,
             width: double.infinity,
             margin: const EdgeInsets.only(
               bottom: 30.0,
